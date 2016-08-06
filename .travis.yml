@@ -7,8 +7,17 @@ cache:
     - "$HOME/.drush/cache"
     - "$HOME/.npm"
 php:
+  - 5.4
+  - 5.5
   - 5.6
   - 7.0
+  - hhvm
+  
+matrix:
+  fast_finish: true
+  include:
+    - php: 5.6
+      env: GUZZLE_VERSION=4.*
 env:
   - VERSION=8.x-1.x
 
@@ -23,6 +32,7 @@ before_install:
   - phpenv config-rm xdebug.ini
   - composer self-update
   - composer --version
+  - if [ "$GUZZLE_VERSION" != "" ]; then composer require "guzzlehttp/guzzle:${GUZZLE_VERSION}" --no-update; fi;
 
 install:
   - export PATH="$HOME/.composer/vendor/bin:$TRAVIS_BUILD_DIR/bin:$PATH"
@@ -54,7 +64,7 @@ before_script:
 
 script:
   - cd ..
-  - ./bin/behat
+  - behat -fprogress --strict
 
-matrix:
-  fast_finish: true
+after_failure:
+  - cat server.log
