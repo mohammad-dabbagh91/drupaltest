@@ -50,23 +50,11 @@
             "modules/contrib/{$name}": [
                 "type:drupal-module"
             ]
-        },
-        "patches": {
-            "drupal/core": {
-                "Plugin Lazy loading can cause usort warning":
-                "https://www.drupal.org/files/issues/Iterating-through-array--2699157.patch"
-            },
-            "drush/drush": {
-                "Adding composer.json support to make-convert command":
-                "https://github.com/drush-ops/drush/commit/ce82b946d49b09cd33da5ca84feb24a6c35f8f8e.patch",
-                "The batch table may not exist by the time _drush_backend_batch_process() is called in 8.x-1.x":
-                "https://github.com/drush-ops/drush/commit/c389aebb7d3e26ff0f544684d8b3ec3528107e55.diff"
-            }
         }
     },
     "require": {
         "cweagans/composer-patches": "^1.5.0",
         "composer/installers": "^1.0",
-        "drupal/core": "^8.1.0"
+        "drupal/core": "8.1.8"
     }
 }
