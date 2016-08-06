@@ -55,7 +55,7 @@ before_script:
   - sleep 5
 
 script:
-  - cd ..
+  - cd ./profile/drupaltest
   - behat --strict
 
 matrix:
