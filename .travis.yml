@@ -7,8 +7,6 @@ cache:
     - "$HOME/.drush/cache"
     - "$HOME/.npm"
 php:
-  - 5.3
-  - 5.4
   - 5.6
   - 7.0
 env:
@@ -50,13 +48,13 @@ install:
 
 before_script:
   - cd docroot
-  - drush rs 8080 &>/dev/null &
+  - drush runserver --server=builtin 8080 &
   - phantomjs --webdriver=4444 > /dev/null &
   - sleep 5
 
 script:
   - cd ..
-  - behat --strict
+  - ./bin/behat
 
 matrix:
   fast_finish: true
