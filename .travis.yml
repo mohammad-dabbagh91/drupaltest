@@ -29,7 +29,6 @@ before_install:
   - phpenv config-rm xdebug.ini
   - composer self-update
   - composer --version
-  - if [ "$GUZZLE_VERSION" != "" ]; then composer require "guzzlehttp/guzzle:${GUZZLE_VERSION}" --no-update; fi;
 
 install:
   - export PATH="$HOME/.composer/vendor/bin:$TRAVIS_BUILD_DIR/bin:$PATH"
@@ -54,8 +53,9 @@ install:
   - if [ $VERSION != "HEAD" ]; then phing update; fi
 
 before_script:
-  - drush make drupal-org-core.make docroot --yes
-  - drush make drupal-org.make docroot --yes
+  - rm -rf docroot
+  - drush make drupal-org-core.make docroot
+  - drush make drupal-org.make docroot
   - cd docroot
   - drush runserver --default-server=builtin 8080 &>/dev/null &
   - phantomjs --webdriver=4444 > /dev/null &
