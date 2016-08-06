@@ -4,7 +4,7 @@ Feature: User Login
   So that I will be able to view/add/edit/ or delete content in the site
 
   Scenario: Check if the a visitor can login with a valid username and password
-    Given I am on "user/login"
+    Given I am on "/user/login"
      When I fill in "test_authenticated" for "Username"
       And I fill in "dD.123123ddd" for "Password"
       And I press "Log in"
@@ -12,7 +12,7 @@ Feature: User Login
       And I should see "Member for"
 
   Scenario: Check a fail to enter username or password
-    Given I am on "user/login"
+    Given I am on "/user/login"
      When I press "Log in"
      Then I should see "Username field is required"
       And I should see "Password field is required"
