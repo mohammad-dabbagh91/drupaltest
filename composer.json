@@ -1,5 +1,5 @@
 {
-    "name": "natshah/drupal-test",
+    "name": "natshah/drupaltest",
     "description": "Drupal distribution Testing.",
     "type": "drupal-profile",
     "license": "GPL-2.0+",

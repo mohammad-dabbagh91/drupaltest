@@ -1,16 +1,20 @@
-name: drupal-test
+name: drupaltest
 type: profile
 description: 'Drupal distribution Testing.'
 core: 8.x
 distribution:
-  name: drupal-test
+  name: drupaltest
 
 dependencies:
   # core
-  - block_content
+  - node
+  - history
+  - block
   - breakpoint
   - ckeditor
+  - color
   - config
+  - comment
   - contextual
   - contact
   - menu_link_content
@@ -18,18 +22,16 @@ dependencies:
   - block_content
   - quickedit
   - editor
-  - entity_reference
   - help
-  - history
   - image
   - menu_ui
-  - node
   - options
   - path
   - page_cache
+  - dynamic_page_cache
   - taxonomy
-  - text
   - dblog
+  - search
   - shortcut
   - toolbar
   - field_ui
@@ -37,7 +39,8 @@ dependencies:
   - rdf
   - views
   - views_ui
-
+  - tour
+  - automated_cron
 themes:
   - bartik
   - seven
