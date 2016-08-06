@@ -54,6 +54,8 @@ install:
   - if [ $VERSION != "HEAD" ]; then phing update; fi
 
 before_script:
+  - drush make drupal-org-core.make docroot --yes
+  - drush make drupal-org.make docroot --yes
   - cd docroot
   - drush runserver --default-server=builtin 8080 &>/dev/null &
   - phantomjs --webdriver=4444 > /dev/null &
