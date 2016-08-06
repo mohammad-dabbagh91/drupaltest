@@ -50,12 +50,12 @@ install:
 
 before_script:
   - cd docroot
-  - drush rs 80 &>/dev/null &
+  - drush rs 8080 &>/dev/null &
   - phantomjs --webdriver=4444 > /dev/null &
   - sleep 5
 
 script:
-  - cd ./profile/drupaltest
+  - cd ..
   - behat --strict
 
 matrix:
